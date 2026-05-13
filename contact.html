@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Travel Bangladesh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: pageFadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes pageFadeIn {
+            to { opacity: 1; }
+        }
+        .side-search{
+    padding:0 20px 20px 20px;
+}
+
+/* Sidebar/Menu Bar Button Style */
+         .side-title{
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    padding:0 32px 15px 32px;
+}
+
+.side-search{
+    padding:0 20px 20px 20px;
+}
+
+
+.side-search input{
+    width:100%;
+    padding:10px 12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+        .menu-bar-btn {
+            background-color: #3c8fe2; 
+            color: rgb(238, 231, 231);
+            border: none;
+            padding: 5px 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+
+        .menu-bar-btn:hover {
+            background-color: #1d80cc;
+            transform: scale(1.05);
+        }
+
+        /* Sidenav Style */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            left: 0;
+            background-color: #83a8e9;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #fffdfd;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover { color: #b61919; }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: linear-gradient(to right, #0d47a1, #1976d2);
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        header nav a:hover { color: #ade8f4; }
+
+        /* ===== Hero Banner ===== */
+        .hero {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                        url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ade8f4;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== Main Layout ===== */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 30px;
+            align-items: flex-start;
+        }
+
+        /* ===== Contact Form ===== */
+        .form-box {
+            flex: 1;
+            min-width: 280px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideRight 0.8s ease 0.2s forwards;
+        }
+
+        @keyframes slideRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .form-box h2 {
+            font-size: 24px;
+            color: #023e8a;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0077b6;
+            display: inline-block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #023e8a;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: 0.3s;
+            background: #f9f9f9;
+        }
+
+        .form-group textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0077b6;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0,119,182,0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #ff7a00, #ff005d);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: pulse 1.8s infinite;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.04);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 93, 0.5); }
+            70% { box-shadow: 0 0 0 14px rgba(255, 0, 93, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 93, 0); }
+        }
+
+        /* ===== Info Box ===== */
+        .info-box {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideLeft 0.8s ease 0.3s forwards;
+        }
+
+        @keyframes slideLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .info-card .icon-circle {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0077b6, #023e8a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .info-card h4 {
+            font-size: 15px;
+            color: #023e8a;
+            margin-bottom: 4px;
+        }
+
+        .info-card p, .info-card a {
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .info-card a:hover { color: #0077b6; }
+
+        /* ===== Social Section ===== */
+        .social-section {
+            background: #fff;
+            border-radius: 14px;
+            padding: 25px 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.09);
+            text-align: center;
+        }
+
+        .social-section h4 {
+            font-size: 16px;
+            color: #023e8a;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover { transform: scale(1.2) rotate(8deg); }
+
+        .fb { background: #1877f2; }
+        .wa { background: #25d366; }
+        .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .yt { background: #ff0000; }
+
+        /* ===== Success Message ===== */
+        #success-msg {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* ===== Map-style Banner ===== */
+        .map-banner {
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            padding: 0 30px;
+        }
+
+        .map-banner iframe {
+            width: 100%;
+            height: 280px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #6e81d4;
+            color: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer-text {
+            animation: fadeUp 1.5s ease-in-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 700px) {
+            .hero-content h1 { font-size: 32px; }
+            .contact-wrapper { flex-direction: column; }
+            .info-box { flex: 1; min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  </div>
+
+        <!-- Side Navigation -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="home.html">Home</a>
+            <a href="view_packages.html">Packages</a>
+            <a href="booking.html">Booking</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    
+<button class="menu-bar-btn" onclick="openNav()"> 
+        <i class="fa-solid fa-bars"></i>
+    </button>
+ <div class="logo">Travel Bangladesh</div>
+</header>
+
+<!-- Hero Banner -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you — reach out anytime</p>
+    </div>
+</div>
+
+<!-- Main Contact Section -->
+<div class="contact-wrapper">
+
+    <!-- Form -->
+    <div class="form-box">
+        <h2>Send a Message</h2>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> Your Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+            <input type="email" id="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-tag"></i> Subject</label>
+            <input type="text" id="subject" placeholder="e.g. Package inquiry, booking help...">
+        </div>
+
+        <div class="form-group">
+            <label><i class="fa-solid fa-comment"></i> Message</label>
+            <textarea id="message" placeholder="Write your message here..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="sendMessage()">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+
+        <div id="success-msg">✅ Your message has been sent! We'll get back to you soon.</div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-box">
+        <div class="info-card">
+            <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+                <h4>Our Address</h4>
+                <p>Dhaka, Bangladesh</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+            <div>
+                <h4>Phone / WhatsApp</h4>
+                <a href="https://wa.me/8801962104591" target="_blank">+880 1962-104591</a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="icon-circle"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+                <h4>Email Us</h4>
+                <a href="mailto:support@travelbangladesh.com">support@travelbangladesh.com</a>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="icon-circle"><i class="fa-solid fa-clock"></i></div>
+            <div>
+                <h4>Working Hours</h4>
+                <p>Sat – Thu: 9am – 6pm</p>
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a class="fb" href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a class="wa" href="https://wa.me/8801962104591" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a class="ig" href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="yt" href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Embedded Map -->
+<div class="map-banner">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.82588013453!2d90.27923698828125!3d23.780573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1714300000000!5m2!1sen!2sbd"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- Footer -->
+<footer>
+    <strong><p class="footer-text">&copy; 2026 Travel Bangladesh | All Rights Reserved</p></strong>
+</footer>
+
+<script>
+      /* SideNav Logic */
+    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+
+    function sendMessage() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            alert('Please fill in your name, email, and message.');
+            return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        document.getElementById('success-msg').style.display = 'block';
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+
+        setTimeout(() => {
+            document.getElementById('success-msg').style.display = 'none';
+        }, 5000);
+    }
+</script>
+
+</body>
+</html>

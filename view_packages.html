@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Packages - Travel Bangladesh</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #f4f4f4; 
+            overflow-x: hidden;
+        }
+
+        /* ===== Header ===== */
+        header { 
+            background: #0077b6; 
+            color: #fff; 
+            padding: 15px; 
+            text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header nav a { 
+            color: #fff; 
+            margin: 0 10px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            transition: 0.3s;
+        }
+        header nav a:hover { color: #ade8f4; }
+
+        h1 { 
+            text-align: center; 
+            margin: 30px 0; 
+            color: #023e8a;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        /* ===== Package Grid ===== */
+        .packages-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 25px; 
+            padding: 0 20px 60px 20px; 
+        }
+
+        /* ===== Package Card & Animations ===== */
+        .package-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            width: 300px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0; /* Starts invisible for animation */
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .package-card img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+        
+        .package-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .package-card h2 { margin: 15px 10px 5px; font-size: 1.3em; color: #0077b6; }
+        .package-card p { margin: 5px 10px; font-size: 0.95em; color: #555; line-height: 1.4; }
+        .package-card .price-tag { color: #00b04f; font-weight: bold; font-size: 1.1em; margin: 10px; }
+
+        .package-card .buttons { 
+            margin: auto 10px 15px 10px; 
+            display: flex; 
+            justify-content: space-between; 
+            gap: 10px;
+        }
+        .package-card .buttons a { 
+            text-decoration: none; 
+            padding: 10px 0; 
+            border-radius: 6px; 
+            color: #fff; 
+            font-weight: bold; 
+            flex: 1; 
+            text-align: center;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+        .view-btn { background: #0077b6; }
+        .view-btn:hover { background: #023e8a; }
+        .book-btn { background: #00b04f; }
+        .book-btn:hover { background: #008a3d; }
+                    /*=====Footer=====*/
+        footer { background: lch(58.33% 52.96 270.75); 
+        color: hsl(0, 4%, 10%); text-align: center; 
+        padding: 20px; margin-top: 0;width: 100%; }
+       .footer-text{
+    text-align:center;
+    animation: fadeUp 1.5s ease-in-out;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+        /* ===== Keyframes ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Delaying each card animation for a "staggered" effect */
+        .package-card:nth-child(1) { animation-delay: 0.1s; }
+        .package-card:nth-child(2) { animation-delay: 0.2s; }
+        .package-card:nth-child(3) { animation-delay: 0.3s; }
+        .package-card:nth-child(4) { animation-delay: 0.4s; }
+        .package-card:nth-child(5) { animation-delay: 0.5s; }
+        .package-card:nth-child(6) { animation-delay: 0.6s; }
+        .package-card:nth-child(7) { animation-delay: 0.7s; }
+
+        @media(max-width:700px) { .packages-container { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Travel Bangladesh</h2>
+    <nav>
+         <a href="home.html">Home</a>
+        <a href="view_packages.html">Packages</a>
+        <a href="booking.html">Booking</a>
+        <a href="login.html">Login/Register</a>
+    </nav>
+</header>
+
+<h1>Our Tour Packages</h1>
+
+<div class="packages-container">
+    
+    <div class="package-card">
+        <img src="images/sundarbans_tour.png" alt="Sundarbans Tour">
+        <h2>Sundarbans Tour</h2>
+        <p>Explore the mangrove forest</p>
+        <p><strong>Duration:</strong> 2 Days / 1 Night</p>
+        <p class="price-tag">Price: Tk150.00</p>
+        <div class="buttons">
+            <a href="package_details.html?id=1" class="view-btn">View Details</a>
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/coxs_bazar.png" alt="Cox’s Bazar Trip">
+        <h2>Cox’s Bazar Trip</h2>
+        <p>Relax at the beach</p>
+        <p><strong>Duration:</strong> 3 Days / 2 Nights</p>
+        <p class="price-tag">Price: Tk300.00</p>
+        <div class="buttons">
+            <a href="package_details.html?id=2" class="view-btn">View Details</a>
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/srimangal.png" alt="Srimangal Tea Tour">
+        
+    <h2>Srimangal Tea Tour</h2>
+        <p>Visit tea gardens & hills</p>
+        <p><strong>Duration:</strong> 2 Days / 1 Night</p>
+        <p class="price-tag">Price: Tk180.00</p>
+        <div class="buttons">
+            <a href="package_details.html?id=3" class="view-btn">View Details</a>
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/sylhet.png" alt="Sylhet Adventure">
+        <h2>Sylhet Adventure</h2>
+        <p>Waterfalls & hills exploration</p>
+        <p><strong>Duration:</strong> 3 Days / 2 Nights</p>
+        <p class="price-tag">Price: Tk250.00</p>
+        <div class="buttons">
+           <a href="package_details.html?id=4" class="view-btn">View Details</a>
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/bandarban.png" alt="Bandarban Trek">
+        <h2>Bandarban Trek</h2>
+        <p>Hills, rivers & tribal villages</p>
+        <p><strong>Duration:</strong> 3 Days / 2 Nights</p>
+        <p class="price-tag">Price: Tk280.00</p>
+        <div class="buttons">
+            <a href="package_details.html?id=5" class="view-btn">View Details</a>
+
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/saintmartin.png" alt="Saint Martin’s Island">
+        <h2>Saint Martin’s Island</h2>
+        <p>Snorkeling & sea adventure</p>
+        <p><strong>Duration:</strong> 2 Days / 1 Night</p>
+        <p class="price-tag">Price: Tk220.00</p>
+        <div class="buttons">
+            <a href="package_details.html?id=6" class="view-btn">View Details</a>
+
+            <a href="booking.html" class="book-btn">Book Now</a>
+        </div>
+    </div>
+
+    <div class="package-card">
+        <img src="images/paharpur.png" alt="Paharpur Heritage Tour">
+        <h2>Paharpur Heritage Tour</h2>
+        <p>Ancient Buddhist ruins & history</p>
+        <p><strong>Duration:</strong> 4 Days / 3 Nights</p>
+        <p class="price-tag">Price: Tk120.00</p>
+         <div class="buttons">
+             <a href="package_details.html?id=7" class="view-btn">View Details</a>
+             <a href="booking.html" class="book-btn">Book Now</a>
+         </div>
+    </div>
+</div>
+
+<footer class="container">
+  <strong><p class="footer-text">&copy; 2026 Travel Bangladesh | All Rights Reserved</p></strong>
+</footer>
+
+</body>
+</html>

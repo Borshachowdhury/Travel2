@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Web - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables for Easy Theme Switching */
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #333;
+            --header-bg: linear-gradient(to right, #0d47a1, #1976d2);
+            --section-bg: #ffffff;
+            --card-text: #444;
+            --chat-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: #1a1a1a;
+            --section-bg: #1e1e1e;
+            --card-text: #bbb;
+            --chat-bg: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+         /* Sidebar/Menu Bar Button Style */
+         .side-title{
+    color:white;
+    font-size:26px;
+    font-weight:bold;
+    padding:0 32px 15px 32px;
+}
+
+.side-search{
+    padding:0 20px 20px 20px;
+}
+
+.side-search input{
+    width:100%;
+    padding:10px 12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+}
+        .menu-bar-btn {
+            background-color: #3c8fe2; 
+            color: rgb(238, 231, 231);
+            border: none;
+            padding: 5px 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+
+        .menu-bar-btn:hover {
+            background-color: #1d80cc;
+            transform: scale(1.05);
+        }
+
+        /* Sidenav Style */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            left: 0;
+            background-color: #83a8e9;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #fffdfd;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a:hover { color: #b61919; }
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* ===== Header ===== */
+        header {
+            width: 100%;
+            padding: 15px 40px;
+            background: var(--header-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-nav a {
+            font-size: 18px;
+            margin-left: 18px;
+            color: white;
+            text-decoration: none;
+        }
+        /* Dark Mode Toggle Button */
+        #theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            width: 100%;
+            height: 550px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-left: 80px;
+            color: white;
+        }
+
+        .hero-box {
+            max-width: 550px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-box h3 {
+            font-weight: bold; 
+            font-size: 24px; 
+            color: #2196f3; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .hero-box h1 {
+            font-size: 52px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero-box p {
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .hero-btn {
+            padding: 12px 25px;
+            background: #2196f3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .hero-btn:hover {
+            background: #1976d2;
+            transform: translateY(-2px);
+        }
+
+        /* ===== Content Sections ===== */
+        .section-container {
+            padding: 80px;
+            background: var(--section-bg);
+        }
+
+        .section-container h2 {
+            margin-bottom: 20px;
+            color: #1976d2;
+            font-size: 32px;
+        }
+
+        .section-container p {
+            line-height: 1.8;
+            color: var(--card-text);
+            max-width: 900px;
+            font-size: 16px;
+        }
+
+        /* ===== Contact Section ===== */
+        .contact {
+            background: var(--bg-color);
+            text-align: center;
+        }
+
+        .social {
+            margin-top: 20px;
+        }
+
+        .social img {
+            width: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .social img:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* ===== CHATBOT WIDGET ===== */
+        #chat-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-btn {
+            width: 65px;
+            height: 65px;
+            background: #1976d2;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(25, 118, 210, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(25, 118, 210, 0); }
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 320px;
+            background: var(--chat-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: bottom right;
+        }
+
+        .chat-window.active {
+            display: flex;
+            animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.5) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .chat-header {
+            background: #1976d2;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chat-body {
+            height: 350px;
+            padding: 15px;
+            overflow-y: auto;
+            background: var(--bg-color);
+        }
+
+        .chat-msg {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            max-width: 80%;
+        }
+
+        .bot-msg { background: #e3f2fd; color: #333; align-self: flex-start; border-bottom-left-radius: 0; }
+        .user-msg { background: #1976d2; color: white; align-self: flex-end; margin-left: auto; border-bottom-right-radius: 0; }
+
+        .chat-footer {
+            padding: 10px;
+            background: var(--chat-bg);
+            display: flex;
+            border-top: 1px solid #444;
+        }
+
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            background: var(--section-bg);
+            color: var(--text-color);
+        }
+
+        .chat-footer button {
+            background: #1976d2;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Title -->
+  <div class="side-title">Travel</div>
+
+  <!-- Search box -->
+  <div class="side-search">
+      <input type="text" placeholder="Search packages...">
+  </div>
+
+  <!-- Menu links (packages gulo nichei thakbe) -->
+  <a href="view_packages.html">Packages</a>
+  <a href="booking.html">booking</a>
+  <a href="login.html">Login</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+
+</div>
+
+<header>
+    <button class="menu-bar-btn" onclick="openNav()"> 
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="logo">Travel Web</div>
+     <nav class="icon-nav">
+        <a href="login.html" title="Login"><i class="fa-solid fa-right-to-bracket"></i></a>
+        <a href="register.html" title="Register"><i class="fa-solid fa-user-plus"></i></a>
+        <button id="theme-toggle" onclick="toggleTheme()">
+            <span id="theme-icon">🌙</span> Dark Mode
+        </button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-box">
+        <h3>Welcome to our travel website</h3>
+        <h1>Trip To Paradise</h1>
+        <p>Explore amazing destinations, beautiful beaches and unforgettable travel experiences with our premium management system.</p>
+        <a href="view_packages.html" class="hero-btn">View Packages</a>
+    </div>
+</section>
+
+<section class="section-container">
+    <h2>Description</h2>
+    <p>
+        Our Travel & Tourism Management System helps users to easily explore tour packages and book their favourite destinations online. 
+        Admin can manage tour packages and monitor all bookings, while users can register, login and book travel packages easily. 
+        This system is designed to make travel planning simple and efficient.
+    </p>
+</section>
+
+<section class="section-container contact">
+    <h2>Contact</h2>
+    <div class="social">
+        <a href="https://wa.me/8801962104591" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
+</section>
+
+<div id="chat-container">
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+            <span>Travel Assistant</span>
+            <span style="cursor:pointer" onclick="toggleChat()">×</span>
+        </div>
+        <div class="chat-body" id="chat-content">
+            <div class="chat-msg bot-msg">Hello! 👋 How can I help you with your vacation plans today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type here..." onkeypress="handleKey(event)">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+    <div class="chat-btn" onclick="toggleChat()">
+        <img src="https://cdn-icons-png.flaticon.com/512/2040/2040946.png" width="35" style="filter: brightness(0) invert(1);">
+    </div>
+</div>
+
+<script>
+     /* SideNav Logic */
+    function openNav() { document.getElementById("mySidenav").style.width = "250px"; }
+    function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
+    // --- Theme Logic ---
+    function toggleTheme() {
+        const body = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+        const btnText = document.getElementById('theme-toggle');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.innerText = "🌙";
+            btnText.innerHTML = '<span id="theme-icon">🌙</span> Dark Mode';
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.innerText = "☀️";
+            btnText.innerHTML = '<span id="theme-icon">☀️</span> Light Mode';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-toggle').innerHTML = '<span id="theme-icon">☀️</span> Light Mode';
+    }
+
+    // --- Chatbot Logic ---
+    function toggleChat() {
+        document.getElementById('chat-window').classList.toggle('active');
+    }
+
+    function handleKey(e) {
+        if (e.key === 'Enter') sendMessage();
+    }
+
+    function sendMessage() {
+        const input = document.getElementById('chat-input');
+        const content = document.getElementById('chat-content');
+        const text = input.value.trim();
+
+        if (text !== "") {
+            content.innerHTML += `<div class="chat-msg user-msg">${text}</div>`;
+            input.value = "";
+            content.scrollTop = content.scrollHeight;
+
+            setTimeout(() => {
+                let reply = "That sounds great! Would you like to see our <a href='view_packages.html' style='color:#0d47a1; font-weight:bold;'>latest packages</a>?";
+                if(text.toLowerCase().includes("price")) {
+                    reply = "Our packages start from $120. Click 'View Packages' to see them all!";
+                } else if(text.toLowerCase().includes("hi") || text.toLowerCase().includes("hello")) {
+                    reply = "Hi there! Ready to see our <a href='view_packages.html'>tour packages</a>?";
+                }
+                content.innerHTML += `<div class="chat-msg bot-msg"><strong>Bot:</strong> ${reply}</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
+        }
+    }
+</script>
+
+</body>
+</html>

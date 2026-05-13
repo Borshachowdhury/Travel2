@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>Book Package</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    padding:20px;
+     /* page load animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pageFadeIn 0.8s ease-out forwards;
+}
+
+@keyframes pageFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+form{
+    max-width:400px;
+    margin:auto;
+    background:#fff;
+    padding:25px 27px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+     /* animation */
+    opacity: 0;
+    transform: scale(0.95);
+    animation: formFadeIn 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+    }
+@keyframes formFadeIn {
+    to {
+        opacity:1;
+        transform: scale(1);
+    }
+
+}
+/* Labels - bold */
+form label{
+    font-weight:bold;
+    font-size:16px;
+    display:block;
+    margin-bottom:5px;
+    color:#023e8a;
+}
+h2{text-align:center;color:#0077b6;}
+input,select,button{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+     border-radius:5px;
+    border:1px solid #ccc;
+    font-size:16px;
+    font-weight: bold; 
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    }
+input:focus, select:focus{outline:none; border-color:#0077b6; box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);}
+/*======Animations=====*/
+button{
+    background:linear-gradient(135deg,#ff7a00,#ff005d);
+    border:none;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    position:relative;
+    font-size:18px;
+    animation: pulse 1.5s infinite;
+    box-shadow:0 0 0 rgba(255,0,93,0.6);
+    transition:0.3s;
+}
+button:hover{
+    transform:scale(1.08);
+}
+/* pulse animation */
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(255,0,93,0.6);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(255,0,93,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(255,0,93,0);
+    }
+} 
+</style>
+</head>
+<body>
+
+<h2>Book Your Package</h2>
+
+<form>
+
+<label>Package</label>
+<select id="package">
+    <option>Sundarbans Tour</option>
+    <option>Cox’s Bazar Trip</option>
+    <option>Srimangal Tea Tour</option>
+    <option>Sylhet Adventure</option>
+    <option>Bandarban Trek</option>
+    <option>Saint Martin’s Island</option>
+    <option>Paharpur Heritage Tour</option>
+</select>
+
+<label>Your Name</label>
+<input type="text" required>
+
+<label>Phone</label>
+<input type="text" required>
+<label>Username or Gmail</label>
+<input
+  type="text"
+  name="login"
+  placeholder="username/example@gmail.com"
+  required
+  pattern="^([a-zA-Z0-9._]{3,20}|[a-zA-Z0-9._%+-]+@gmail\.com)$"
+  title="Username (3-20 letters/numbers) অথবা valid Gmail দিন">
+
+<label>Travel Date</label>
+<input type="date" required>
+
+<button type="submit">Booking</button>
+
+</form>
+
+</body>
+</html>

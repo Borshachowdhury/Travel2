@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Modern Auth</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a18cd1, #89f7fe);
+    background-size: 300% 300%;
+    animation: gradientMove 8s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    opacity: 0;
+     animation: ultraFade 3s ease-in forwards;
+}
+@keyframes ultraFade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.card{
+    width:330px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    padding-bottom:20px;
+}
+
+.top{
+    height:180px;
+    position:relative;
+    background:#fff;
+    overflow:hidden;
+}
+.top::before{
+    content:"";
+    position:absolute;
+    top:-90px;
+    right:-90px;
+    width:280px;
+    height:280px;
+    background:#4e5aa7;
+    border-radius:50%;
+}
+.top::after{
+    content:"";
+    position:absolute;
+    top:-40px;
+    right:40px;
+    width:120px;
+    height:120px;
+    background:#5c6bc0;
+    border-radius:50%;
+}
+.heart{
+    position:absolute;
+    top:70px;
+    left:30px;
+    font-size:40px;
+    color:#4e5aa7;
+}
+.welcome{
+    padding:0 30px;
+}
+.welcome h2{
+    margin:0;
+    color:#4e5aa7;
+}
+.welcome p{
+    margin-top:5px;
+    font-size:14px;
+    color:gray;
+}
+
+.form-box{
+    background:#4e5aa7;
+    margin:20px;
+    padding:20px;
+    border-radius:15px;
+    color:#fff;
+}
+
+.label{
+    font-size:13px;
+}
+.input-group{
+    margin:10px 0 15px;
+}
+.input-group input{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+}
+
+.btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(to right,#8895e0,#4e5aa7);
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+.bottom{
+    text-align:center;
+    color:#4e5aa7;
+    font-size:13px;
+}
+.bottom a{
+    color:#4e5aa7;
+    font-weight:bold;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+    <div class="top">
+        <div class="heart">❤</div>
+    </div>
+
+    <div class="welcome">
+        <h2>Create Account</h2>
+        <p>Register now to continue</p>
+    </div>
+
+    <div class="form-box">
+
+        <label>Username</label>
+        <div class="input-group">
+            <input type="text" placeholder="Enter Username">
+        </div>
+
+        <label>Email</label>
+        <div class="input-group">
+            <input type="email" placeholder="example@gmail.com">
+        </div>
+
+        <label>Password</label>
+        <div class="input-group">
+            <input type="password" placeholder="********">
+        </div>
+
+        <button class="btn">Register</button>
+    </div>
+
+    <div class="bottom">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
+
+</div>
+
+</body>
+</html>
